@@ -1,0 +1,31 @@
+owners = [ 'noex' ]
+nickname = "rustybutt"
+nick_password = ""
+alt_nicks = ["user_", "user__"]
+username = "rustybutt"
+realname = "rustybutt"
+server = "irc.libera.chat"
+port = 6697
+password = ""
+proxy_type = "None"
+use_tls = true
+encoding = "UTF-8"
+channels = ["#depression"]
+umodes = "+RB-x"
+user_info = ""
+version = "irc:git:Rust"
+source = "https://github.com/aatxe/irc"
+ping_time = 180
+ping_timeout = 10
+burst_window_length = 8
+max_messages_in_burst = 15
+should_ghost = false
+ghost_sequence = []
+
+[channel_keys]
+"#fake" = "password"
+
+[options]
+note = "anything you want can be in here!"
+and = "you can use it to build your own additional configuration options."
+key = "value"
