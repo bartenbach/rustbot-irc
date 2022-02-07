@@ -11,3 +11,4 @@ futures = "0.3.19" # An implementation of futures and streams featuring zero all
 tokio = { version = "1.15.0", features = ["rt", "rt-multi-thread", "macros", "net", "time"] }
 failure = "0.1.8"
 hyphenation = { version = "0.8.4", features = ["embed_all"] }
+rand = "0.8.4" # Random number generators and other randomness functionality.

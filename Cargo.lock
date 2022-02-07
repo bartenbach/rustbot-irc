@@ -728,6 +728,7 @@ dependencies = [
  "futures",
  "hyphenation",
  "irc",
+ "rand",
  "tokio",
 ]
 

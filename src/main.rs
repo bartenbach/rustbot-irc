@@ -1,21 +1,35 @@
+#![feature(str_split_as_str)]
 use hyphenation::{Standard, Language};
 use hyphenation::load::Error;
 use futures::prelude::*;
 use irc::client::prelude::*;
+use std::collections::HashMap;
 mod language_processor;
 
 #[tokio::main]
 async fn main() -> Result<(), failure::Error> {
+    // load config
     let config = Config::load("butt.toml").unwrap();
     let mut client = Client::from_config(config).await?;
-    client.identify()?;
 
+    // connect
+    client.identify()?;
     let mut stream = client.stream()?;
 
+    // initialize chat map
+    //let mut chat_map: HashMap<String,String> = HashMap::new();
+
+    // listen
     while let Some(message) = stream.next().await.transpose()? {
         if let Command::PRIVMSG(channel, message) = message.command {
-            if message.contains(client.current_nickname()) {
-                client.send_privmsg(&channel, "hey there!").unwrap();
+            println!("{}: {}", channel, message);
+            //chat_map.insert(client.current_nickname().to_string(), client.);
+            //if message.contains(client.current_nickname()) {
+            println!("{}", language_processor::get_buttified_sentence(message.clone(), 5));
+            //    client.send_privmsg(&channel, language_processor::get_buttified_sentence(message)).unwrap();
+            //}
+            if message.starts_with("!g") {
+                println!("https://duckduckgo.com/?q={}","query");
             }
         }
     }
